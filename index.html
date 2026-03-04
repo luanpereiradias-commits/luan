@@ -48,12 +48,19 @@
 </html>
 
 
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo con IA</title>
+    <title>Explora el Mundo</title>
     <style>
         body {
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
@@ -73,67 +80,47 @@
 
         h1 {
             font-size: 5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
-            user-select: none;
+            transition: transform 0.5s;
         }
 
         h1:hover {
-            transform: scale(1.1);
-            color: #4db8ff;
+            transform: scale(1.05);
         }
 
-        /* Ventana del Chat (IA) */
+        /* ESTILO DEL BOTÓN EXPLORAR */
+        .btn-explorar {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4db8ff;
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(5px); /* Efecto de vidrio empañado */
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(77, 184, 255, 0.4);
+        }
+
+        .btn-explorar:hover {
+            background: #4db8ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(77, 184, 255, 0.8);
+            transform: translateY(-5px);
+        }
+
+        /* Ventana del Chat */
         #chat-container {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 300px;
-            height: 400px;
+            width: 320px;
+            height: 450px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            flex-direction: column;
-            overflow: hidden;
-            color: #333;
-        }
-
-        #chat-header {
-            background: #4db8ff;
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        #chat-messages {
-            flex: 1;
-            padding: 10px;
-            font-size: 0.9rem;
-            overflow-y: auto;
-        }
-
-        #chat-input {
-            border: none;
-            border-top: 1px solid #eee;
-            padding: 15px;
-            outline: none;
-        }
-    </style>
-</head>
-<body>
-
-    <h1 onclick="abrirIA()">¡Hola, mundo!</h1>
-    <p>Haz clic en el título para preguntar a la IA</p>
-
-    <div id="chat-container">
-        <div id="chat-header">Asistente IA ✨</div>
-        <div id="chat-messages">
-            <p><strong>IA:</strong> ¡Hola! Soy tu asistente. ¿En qué puedo ayudarte hoy?</p>
-        </div>
-        <input type="text" id="chat-input" placeholder="Escribe tu duda aquí...">
-    </div>
-
-    <script>
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
