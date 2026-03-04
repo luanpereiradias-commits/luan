@@ -46,3 +46,94 @@
     <p>Pasa el mouse sobre el título</p>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo con IA</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+            user-select: none;
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+            color: #4db8ff;
+        }
+
+        /* Ventana del Chat (IA) */
+        #chat-container {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            flex-direction: column;
+            overflow: hidden;
+            color: #333;
+        }
+
+        #chat-header {
+            background: #4db8ff;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 10px;
+            font-size: 0.9rem;
+            overflow-y: auto;
+        }
+
+        #chat-input {
+            border: none;
+            border-top: 1px solid #eee;
+            padding: 15px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 onclick="abrirIA()">¡Hola, mundo!</h1>
+    <p>Haz clic en el título para preguntar a la IA</p>
+
+    <div id="chat-container">
+        <div id="chat-header">Asistente IA ✨</div>
+        <div id="chat-messages">
+            <p><strong>IA:</strong> ¡Hola! Soy tu asistente. ¿En qué puedo ayudarte hoy?</p>
+        </div>
+        <input type="text" id="chat-input" placeholder="Escribe tu duda aquí...">
+    </div>
+
+    <script>
