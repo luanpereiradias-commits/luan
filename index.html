@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo Olá Mundo</title>
+    <title>Hola Mundo Espacial</title>
     <style>
         body {
-            background-color: #ffffff; /* Fundo branco */
-            font-family: 'Arial', sans-serif; /* Fonte moderna */
+            /* Imagen de fondo del mundo/espacio */
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Altura completa da tela */
-            margin: 0;
-            text-align: center;
+            color: white; /* Texto blanco para que resalte */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7); /* Sombra para leer mejor */
         }
 
         h1 {
             font-size: 4rem;
-            animation: fadeIn 2s ease-in-out; /* Animação de fade-in */
-            letter-spacing: 5px; /* Espaçamento entre as letras */
-            color: #3498db; /* Texto azul */
+            margin-bottom: 0;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        p {
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
-    <h1>Olá, Mundo!</h1>
+    <h1>¡Hola, mundo!</h1>
+    <p>Explorando el desarrollo web.</p>
 </body>
 </html>
