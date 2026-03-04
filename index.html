@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo Espacial</title>
+    <title>Hola Mundo Interactivo</title>
     <style>
         body {
-            /* Imagen de fondo del mundo/espacio */
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -17,23 +16,33 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white; /* Texto blanco para que resalte */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7); /* Sombra para leer mejor */
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden; /* Evita que aparezcan barras de scroll si el texto se mueve mucho */
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 0;
+            font-size: 5rem;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Hace que el movimiento sea suave y no brusco */
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+        }
+
+        /* EFECTO AL PASAR EL MOUSE */
+        h1:hover {
+            transform: scale(1.1) translateY(-10px) rotate(2deg);
+            color: #4db8ff; /* Cambia a un azul neón */
+            text-shadow: 0px 0px 30px rgba(77, 184, 255, 0.8);
         }
 
         p {
             font-size: 1.5rem;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <h1>¡Hola, mundo!</h1>
-    <p>Explorando el desarrollo web.</p>
+    <p>Pasa el mouse sobre el título</p>
 </body>
 </html>
