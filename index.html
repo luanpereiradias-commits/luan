@@ -134,16 +134,20 @@
 <title>Olá Mundo</title>
 
 <script>
-function clicou(){
-    alert("Você clicou em Olá Mundo!");
+function abrirSite(){
+    window.open("https://solarsystem.nasa.gov", "_blank");
 }
 </script>
 
 </head>
 
-<body>
+<body style="text-align:center; font-family:Arial;">
 
-<h1 onclick="clicou()">Olá Mundo</h1>
+<h1 onclick="abrirSite()" style="cursor:pointer; color:blue;">
+Olá Mundo
+</h1>
+
+<p>Clique em "Olá Mundo" para abrir um site sobre a Terra e o espaço.</p>
 
 </body>
 </html>
