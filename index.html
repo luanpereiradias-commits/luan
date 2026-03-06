@@ -126,20 +126,51 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             <div></div>
 
-        
+
             <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Planeta Terra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olá Mundo - Planeta Terra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0b1d2f;
+            color: white;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e90ff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #63b3ed;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>
-        <a href="https://pt.wikipedia.org/wiki/Terra" target="_blank">
-            Clique aqui para saber sobre o Planeta Terra e o Espaço
-        </a>
-    </h1>
+    <h1>Olá Mundo!</h1>
+    <button onclick="abrirSite()">Clique aqui para explorar o Planeta Terra e o Espaço</button>
+
+    <script>
+        function abrirSite() {
+            window.open('https://www.nasa.gov/', '_blank');
+        }
+    </script>
 
 </body>
 </html>
