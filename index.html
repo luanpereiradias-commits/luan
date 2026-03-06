@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá, Mundo!</title>
+    <title>Decolar para o site da NASA</title>
     <style>
         /* Estilo do botão */
         .decolar-btn {
@@ -16,16 +16,18 @@
             cursor: pointer;          /* Cursor de mãozinha */
             text-align: center;        /* Alinhar o texto */
             text-decoration: none;     /* Remover sublinhado do link */
+            box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Brilho */
+            transition: box-shadow 0.3s ease-in-out; /* Efeito suave ao passar o mouse */
         }
 
         /* Efeito de hover (quando passar o mouse sobre o botão) */
         .decolar-btn:hover {
             background-color: #0096c7;
+            box-shadow: 0 0 20px #00bcd4, 0 0 30px #00bcd4, 0 0 40px #00bcd4; /* Brilho mais forte */
         }
     </style>
 </head>
 <body>
-    <h1>Olá, Mundo!</h1>
     <a href="https://www.nasa.gov" class="decolar-btn" target="_blank">Decolar para o site da NASA</a>
 </body>
 </html>
