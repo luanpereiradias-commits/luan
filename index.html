@@ -37,105 +37,6 @@
 
 
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar o Espaço - NASA</title>
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-family: 'Segoe UI', sans-serif;
-            color: white;
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 4rem;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        h1:hover {
-            transform: scale(1.05);
-        }
-
-        /* Botão moderno */
-        .btn-explorar {
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: white;
-            background: rgba(0, 119, 182, 0.8); /* azul translúcido */
-            border: 2px solid #00bcd4;
-            border-radius: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .btn-explorar:hover {
-            background: #00bcd4;
-            color: #000;
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 188, 212, 0.8);
-        }
-
-        /* Pequena instrução */
-        p {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .btn-explorar {
-                padding: 15px 30px;
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Explore o Universo!</h1>
-    <button class="btn-explorar" onclick="abrirNASA()">Decolar para a NASA</button>
-    <p>Descubra o espaço, planetas e novas fronteiras da ciência.</p>
-
-    <script>
-        function abrirNASA() {
-            window.open('https://www.nasa.gov', '_blank');
-        }
-    </script>
-
-</body>
-</html>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -418,6 +319,216 @@
             rocket.style.animation = '';
         }, 3000);
     }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decolar para o Espaço</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+        background: radial-gradient(ellipse at bottom, #0b1d2f 0%, #000 100%);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+    }
+
+    h1:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-explorar {
+        padding: 18px 50px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+        background: rgba(0, 119, 182, 0.8);
+        border: 2px solid #00bcd4;
+        border-radius: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-explorar:hover {
+        background: #00bcd4;
+        color: #000;
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 0 40px rgba(0, 188, 212, 0.8);
+    }
+
+    /* Foguete */
+    .rocket {
+        position: absolute;
+        bottom: 0;
+        width: 60px;
+        height: 140px;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Corpo do foguete */
+    .rocket-body {
+        width: 40px;
+        height: 100px;
+        background: linear-gradient(to bottom, #ff4d4d, #e60000);
+        border-radius: 20px 20px 5px 5px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Nariz do foguete */
+    .rocket-nose {
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid #ff4d4d;
+    }
+
+    /* Asas */
+    .rocket-wing-left, .rocket-wing-right {
+        width: 15px;
+        height: 30px;
+        background: #b30000;
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+    }
+    .rocket-wing-left {
+        left: -15px;
+        transform: rotate(-30deg);
+        border-radius: 0 0 5px 5px;
+    }
+    .rocket-wing-right {
+        right: -15px;
+        transform: rotate(30deg);
+        border-radius: 0 0 5px 5px;
+    }
+
+    /* Janela */
+    .rocket-window {
+        width: 15px;
+        height: 15px;
+        background: #00bcd4;
+        border-radius: 50%;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 2px solid white;
+    }
+
+    /* Chama */
+    .rocket-flame {
+        width: 20px;
+        height: 40px;
+        background: orange;
+        border-radius: 50%;
+        margin-top: -10px;
+        animation: flameFlicker 0.2s infinite alternate;
+        z-index: -1;
+    }
+
+    @keyframes flameFlicker {
+        0% { transform: scaleY(1); opacity: 1; }
+        100% { transform: scaleY(1.5); opacity: 0.6; }
+    }
+
+    @keyframes launch {
+        0% {
+            bottom: 0;
+            opacity: 1;
+        }
+        100% {
+            bottom: 120%;
+            opacity: 0;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<h1>Explore o Universo!</h1>
+<button class="btn-explorar" onclick="launchRocket()">Decolar!</button>
+
+<div class="rocket" id="rocket">
+    <div class="rocket-nose"></div>
+    <div class="rocket-body">
+        <div class="rocket-window"></div>
+        <div class="rocket-wing-left"></div>
+        <div class="rocket-wing-right"></div>
+    </div>
+    <div class="rocket-flame"></div>
+</div>
+
+<script>
+function launchRocket() {
+    const rocket = document.getElementById('rocket');
+    rocket.style.opacity = '1';
+    rocket.style.animation = 'launch 3s ease-in forwards';
+    
+    // Abrir NASA depois do foguete subir
+    setTimeout(() => {
+        window.open('https://www.nasa.gov', '_blank');
+        rocket.style.opacity = '0';
+        rocket.style.animation = '';
+    }, 3000);
+}
 </script>
 
 </body>
