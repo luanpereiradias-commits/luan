@@ -17,21 +17,21 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     color: white;
     overflow: hidden;
     text-align: center;
-    background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
     background-size: cover;
 }
 
 /* Título */
 h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
-    margin-bottom: 30px;
-    position: relative;
+    font-size: 3.5rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    margin-bottom: 40px;
     z-index: 2;
+    letter-spacing: 1px;
 }
 
 /* Botão */
@@ -40,160 +40,225 @@ h1 {
     font-size: 1.3rem;
     font-weight: bold;
     color: white;
-    background: rgba(0, 119, 182, 0.8);
+    background: rgba(0, 119, 182, 0.7);
     border: 2px solid #00bcd4;
     border-radius: 50px;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
-    transition: all 0.3s ease;
-    position: relative;
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
+    backdrop-filter: blur(5px);
 }
 
 .btn-explorar:hover {
     background: #00bcd4;
     color: #000;
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 0 40px rgba(0, 188, 212, 0.8);
+}
+
+.btn-explorar:active {
+    transform: translateY(-1px) scale(1);
 }
 
 /* Foguete */
 .rocket {
     position: absolute;
-    bottom: 0;
+    bottom: -200px; /* Escondido abaixo da tela inicialmente */
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
-    height: 160px;
-    opacity: 0;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
+    pointer-events: none;
 }
 
 /* Nariz do foguete */
 .rocket-nose {
     width: 0;
     height: 0;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 50px solid #d32f2f;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 45px solid #d32f2f;
     border-radius: 50% 50% 0 0;
 }
 
-/* Corpo com gradiente realista */
+/* Corpo */
 .rocket-body {
     width: 40px;
     height: 100px;
-    background: linear-gradient(to bottom, #ff6f61, #b71c1c);
-    border-radius: 20px;
+    background: linear-gradient(to right, #ff6f61, #b71c1c);
+    border-radius: 10px 10px 4px 4px;
     position: relative;
 }
 
-/* Janela com efeito 3D */
+/* Janela */
 .rocket-window {
-    width: 14px;
-    height: 14px;
-    background: radial-gradient(circle at 30% 30%, #00bcd4, #004d40);
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle at 30% 30%, #e0f7fa, #00838f);
     border-radius: 50%;
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
     border: 2px solid #fff;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
 }
 
-/* Asas */
+/* Asas corrigidas (fora do rocket-body para posicionamento perfeito) */
 .rocket-wing-left, .rocket-wing-right {
-    width: 12px;
-    height: 35px;
+    width: 15px;
+    height: 40px;
     background: #b71c1c;
     position: absolute;
-    bottom: 0;
-    z-index: -1;
-    border-radius: 5px 5px 0 0;
+    bottom: 35px;
+    border-radius: 4px 4px 0 10px;
 }
 
 .rocket-wing-left {
-    left: -12px;
-    transform: rotate(-25deg);
+    left: -5px;
+    transform: skewY(30deg);
 }
 
 .rocket-wing-right {
-    right: -12px;
-    transform: rotate(25deg);
+    right: -5px;
+    transform: skewY(-30deg);
+    border-radius: 4px 4px 10px 0;
 }
 
-/* Chama realista com partículas */
+/* Chama */
 .rocket-flame {
-    position: absolute;
-    bottom: -20px;
-    width: 20px;
+    width: 16px;
     height: 50px;
-    background: linear-gradient(to bottom, #ffeb3b, #ff9800, #f44336);
+    background: linear-gradient(to bottom, #ffeb3b, #ff9800, transparent);
     border-radius: 50%;
-    filter: blur(2px);
-    animation: flameFlicker 0.2s infinite alternate;
+    filter: blur(1px);
+    margin-top: -2px;
+    animation: flameFlicker 0.1s infinite alternate;
 }
 
+/* Fumaça/Partículas */
+.smoke {
+    position: absolute;
+    background: rgba(240, 240, 240, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(4px);
+    z-index: 1;
+}
+
+/* Animações */
 @keyframes flameFlicker {
-    0% { transform: scaleY(1) scaleX(1); opacity: 1; }
-    50% { transform: scaleY(1.6) scaleX(1.2); opacity: 0.7; }
-    100% { transform: scaleY(1.2) scaleX(0.9); opacity: 0.5; }
+    0% { transform: scaleX(0.9) translateY(0); }
+    100% { transform: scaleX(1.2) translateY(5px); filter: blur(2px); }
 }
 
-/* Animação de subida */
-@keyframes launch {
-    0% { bottom: 0; opacity: 1; }
-    100% { bottom: 120%; opacity: 0; }
+@keyframes launchSequence {
+    0% { bottom: 10%; transform: translateX(-50%) rotate(0deg); }
+    /* Tremor de ignição */
+    5% { transform: translateX(-52%) rotate(-1deg); }
+    10% { transform: translateX(-48%) rotate(1deg); }
+    15% { transform: translateX(-51%) rotate(-0.5deg); }
+    20% { transform: translateX(-49%) rotate(0.5deg); bottom: 10%; }
+    /* Subida acelerada */
+    100% { bottom: 120%; transform: translateX(-50%) scale(0.8); }
 }
-
 </style>
 </head>
 <body>
 
 <h1>Explore o Universo!</h1>
-<button class="btn-explorar" onclick="launchRocket()">Decolar!</button>
+<button class="btn-explorar" id="btnLaunch" onclick="launchRocket()">Decolar!</button>
 
 <div class="rocket" id="rocket">
     <div class="rocket-nose"></div>
     <div class="rocket-body">
         <div class="rocket-window"></div>
-        <div class="rocket-wing-left"></div>
-        <div class="rocket-wing-right"></div>
     </div>
+    <div class="rocket-wing-left"></div>
+    <div class="rocket-wing-right"></div>
     <div class="rocket-flame"></div>
 </div>
 
 <script>
+function createSmokeParticle(rocketLeft, rocketBottom) {
+    const smoke = document.createElement('div');
+    smoke.classList.add('smoke');
+    
+    // Tamanho aleatório para a fumaça
+    const size = Math.random() * 20 + 10;
+    smoke.style.width = `${size}px`;
+    smoke.style.height = `${size}px`;
+    
+    // Posiciona logo abaixo do foguete com variação lateral
+    smoke.style.left = `${rocketLeft + 15 + (Math.random() * 20 - 10)}px`;
+    smoke.style.bottom = `${rocketBottom}px`;
+    
+    document.body.appendChild(smoke);
+    
+    // Animação manual da fumaça sumindo e expandindo
+    let opacity = 0.6;
+    let currentSize = size;
+    
+    const fadeEffect = setInterval(() => {
+        if (opacity <= 0) {
+            clearInterval(fadeEffect);
+            smoke.remove();
+        } else {
+            opacity -= 0.02;
+            currentSize += 0.5;
+            smoke.style.opacity = opacity;
+            smoke.style.width = `${currentSize}px`;
+            smoke.style.height = `${currentSize}px`;
+        }
+    }, 20);
+}
+
 function launchRocket() {
     const rocket = document.getElementById('rocket');
-    rocket.style.opacity = '1';
-    rocket.style.animation = 'launch 3s ease-in forwards';
+    const btn = document.getElementById('btnLaunch');
     
-    // Abrir NASA após o foguete subir
+    // Desabilita botão para evitar múltiplos cliques
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.5';
+    
+    // Posiciona o foguete na base de lançamento visível
+    rocket.style.bottom = '10%';
+    
+    // Inicia animação CSS (Tremor + Subida)
+    rocket.style.animation = 'launchSequence 4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards';
+    
+    // Loop para gerar fumaça enquanto o foguete sobe
+    const smokeInterval = setInterval(() => {
+        const rocketRect = rocket.getBoundingClientRect();
+        // Converte a posição do topo/janela para a base do documento
+        const bottomPos = window.innerHeight - rocketRect.bottom;
+        const leftPos = rocketRect.left;
+        
+        if (bottomPos < window.innerHeight) {
+            createSmokeParticle(leftPos, bottomPos);
+        }
+    }, 30);
+    
+    // Abre o link e reseta o foguete
     setTimeout(() => {
+        clearInterval(smokeInterval);
         window.open('https://www.nasa.gov', '_blank');
-        rocket.style.opacity = '0';
+        
+        // Reseta o estado original do app
         rocket.style.animation = '';
-    }, 3000);
+        rocket.style.bottom = '-200px';
+        btn.style.pointerEvents = 'all';
+        btn.style.opacity = '1';
+    }, 4000);
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
